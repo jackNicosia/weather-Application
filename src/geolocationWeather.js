@@ -1,4 +1,4 @@
-//import { formatDate } from './formatDate';
+import { formattedDate } from './formattedDate';
 
 export function getWeatherByLocation () {
     window.onload = function () {
@@ -31,6 +31,7 @@ export function getWeatherByLocation () {
 
             //Current Day
                 const temperature = data.current.temp_f;
+                const feelsLike = data.current.feelslike_f;
                 const condition = data.current.condition.text;
                 const locationName = data.location.name;
                 const locationRegion = data.location.region;
@@ -79,6 +80,7 @@ export function getWeatherByLocation () {
                 document.getElementById("location").innerHTML = locationName + ", " + locationRegion;
                 document.getElementById("condition").innerHTML = condition;
                 document.getElementById("temp").innerHTML = temperature + " °F"; 
+                document.getElementById("feelsLike").innerHTML = "Feels like " + feelsLike + " °F"
                 document.getElementById("wind").innerHTML = windMph + " Mph";
                 document.getElementById("minTemp").innerHTML = "Low " + minTemp + " °F";
                 document.getElementById("maxTemp").innerHTML = "High " + maxTemp + " °F";
@@ -88,6 +90,20 @@ export function getWeatherByLocation () {
                 document.getElementById("img1").src = "https:" + img1;
             
               console.log(img1);
+
+
+            //To format the next two dates
+              function formatDate(dateString) {
+                const date = new Date(dateString);
+                const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+                const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+            
+                const dayOfWeek = days[date.getUTCDay()];
+                const month = months[date.getUTCMonth()];
+                const day = date.getUTCDate();
+            
+                return `${dayOfWeek}, ${month} ${day}`;
+            }
 
             
             
@@ -103,12 +119,14 @@ export function getWeatherByLocation () {
                 const snow2 = data.forecast.forecastday[1].day.daily_chance_of_snow;
                 const wind2 = data.forecast.forecastday[1].day.maxwind_mph;
                 const img2 = data.forecast.forecastday[1].day.condition.icon;
+                const formattedDate2 = formatDate(date2);
+               
     
 
 
 
 
-                document.getElementById("date2").innerHTML = date2; 
+                document.getElementById("date2").innerHTML = formattedDate2; 
                 document.getElementById("condition2").innerHTML = condition2;
                 document.getElementById("minTemp2").innerHTML = "Low " + minTemp2 + " °F";
                 document.getElementById("maxTemp2").innerHTML = "High " + maxTemp2 + " °F";
@@ -117,24 +135,29 @@ export function getWeatherByLocation () {
                 document.getElementById("wind2").innerHTML = "Max " + wind2 + "  Mph";
                 document.getElementById("img2").src = "https:" + img2;
 
-            //3rd Day
-            const date3 = data.forecast.forecastday[2].date;
-            const condition3 = data.forecast.forecastday[2].day.condition.text;
-            const minTemp3 = data.forecast.forecastday[2].day.mintemp_f;
-            const maxTemp3 = data.forecast.forecastday[2].day.maxtemp_f;
-            const rain3 = data.forecast.forecastday[2].day.daily_chance_of_rain;
-            const snow3 = data.forecast.forecastday[2].day.daily_chance_of_snow;
-            const wind3 = data.forecast.forecastday[2].day.maxwind_mph;
-            const img3 = data.forecast.forecastday[2].day.condition.icon
 
-            document.getElementById("date3").innerHTML = date3; 
-            document.getElementById("condition3").innerHTML = condition3;
-            document.getElementById("minTemp3").innerHTML = "Low " + minTemp3 + " °F";
-            document.getElementById("maxTemp3").innerHTML = "High " + maxTemp3 + " °F";
-            document.getElementById("rain3").innerHTML = "Rain " + rain3 + "%";
-            document.getElementById("snow3").innerHTML = "Snow " + snow + "%";
-            document.getElementById("wind3").innerHTML = "Max " + wind3 + " Mph";
-            document.getElementById("img3").src = "https:" + img3;
+
+
+
+            //3rd Day
+                const date3 = data.forecast.forecastday[2].date;
+                const condition3 = data.forecast.forecastday[2].day.condition.text;
+                const minTemp3 = data.forecast.forecastday[2].day.mintemp_f;
+                const maxTemp3 = data.forecast.forecastday[2].day.maxtemp_f;
+                const rain3 = data.forecast.forecastday[2].day.daily_chance_of_rain;
+                const snow3 = data.forecast.forecastday[2].day.daily_chance_of_snow;
+                const wind3 = data.forecast.forecastday[2].day.maxwind_mph;
+                const img3 = data.forecast.forecastday[2].day.condition.icon
+                const formattedDate3 = formatDate(date3);
+
+                document.getElementById("date3").innerHTML = formattedDate3; 
+                document.getElementById("condition3").innerHTML = condition3;
+                document.getElementById("minTemp3").innerHTML = "Low " + minTemp3 + " °F";
+                document.getElementById("maxTemp3").innerHTML = "High " + maxTemp3 + " °F";
+                document.getElementById("rain3").innerHTML = "Rain " + rain3 + "%";
+                document.getElementById("snow3").innerHTML = "Snow " + snow + "%";
+                document.getElementById("wind3").innerHTML = "Max " + wind3 + " Mph";
+                document.getElementById("img3").src = "https:" + img3;
 
 
 
