@@ -1,0 +1,107 @@
+body {
+    display: grid;
+    grid-template-columns: 32vw 32vw 32vw;
+    grid-template-rows: 20vh 70vh;
+    grid-gap: 20px;
+    background-color: #21D4FD;
+    background-image: linear-gradient(19deg, #21D4FD 0%, #B721FF 50%, #ffffff 100%);
+    background-attachment: fixed;
+}
+
+#searchDiv {
+    grid-row: 1;
+
+}
+
+#icon {
+    height: 200px;
+}
+
+#search {
+    background-color: rgba(235, 232, 232, 0.726);
+    outline: none;
+    border:none;
+    border-bottom: 3px solid #000000;
+    font-size: 2em;
+    height: 6vh;
+    width: 15vw;
+    
+}
+
+#search-btn {
+    color:rgb(9, 255, 0);
+    background-image: url(/dist/48295fe6121940698100.png)
+}
+
+.test {
+    width: 50px;
+    height: 50px;
+    background-color: red;
+}
+
+#weatherBox {
+    display: flex;
+    align-items: center;
+    grid-column: 1;
+    grid-row: 2;
+    flex-direction: column;
+    font-size: 3em;
+    font-weight: 800;
+    background-color: #14c0e7;
+    border-radius: 75px;
+    box-shadow: 10px 10px;
+    text-align: center;
+}
+
+#box2 {
+    display: flex;
+    align-items: center;
+    grid-column: 2;
+    grid-row: 2;
+    flex-direction: column;
+    font-size: 3em;
+    font-weight: 800;
+    background-color: #14c0e7;
+    border-radius: 75px;
+    box-shadow: 10px 10px;
+    text-align: center;
+
+}
+
+#box3 {
+
+    display: flex;
+    align-items: center;
+    grid-column: 3;
+    grid-row: 2;
+    flex-direction: column;
+    font-size: 3em;
+    font-weight: 800;
+    background-color: #14c0e7;
+    border-radius: 75px;
+    box-shadow: 10px 10px;
+    text-align: center;
+}
+
+#location {
+    grid-column: 2;
+    grid-row: 1;
+    text-align: center;
+    font-size: 5em;
+}
+
+#date, #date2, date3 {
+    margin-bottom: 2vh;
+    width: 80%;
+}
+
+
+
+#img1,#img2,#img3 {
+    margin-bottom: 2vh;
+}
+
+
+
+
+
